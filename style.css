@@ -1,0 +1,158 @@
+:root{--navy:#123A5E;--amber:#E38226;--paper:#E9E9E6;--line:#D8D5CC;--ink:#1C2024;--teal:#0E7C86;--ok:#2E7D4F;--danger:#B4443B}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{font-family:"Segoe UI",system-ui,Arial,sans-serif;background:var(--paper);color:var(--ink)}
+
+.topbar{background:var(--navy);color:#fff;display:flex;align-items:center;gap:14px;padding:10px 22px;border-bottom:4px solid var(--amber)}
+.topbar .title{font-size:15px;font-weight:600}
+.topbar .title small{display:block;font-weight:400;font-size:11px;color:#C9D6E4}
+.topbar nav{margin-left:auto;display:flex;gap:6px}
+.topbar nav button{background:transparent;border:1px solid rgba(255,255,255,.35);color:#fff;padding:7px 14px;font-size:13px;border-radius:3px;cursor:pointer}
+.topbar nav button.active{background:var(--amber);border-color:var(--amber);color:#231605;font-weight:600}
+
+.shell{max-width:860px;margin:18px auto 60px;padding:0 10px}
+.records-bar{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:3px;padding:8px 12px;margin-bottom:14px}
+.records-bar select{flex:1;padding:6px;border:1px solid var(--line);border-radius:3px;font-size:13px}
+.records-bar .count{font-size:12px;color:#5B6570}
+.view{display:none}.view.active{display:block}
+.scroller{overflow-x:auto;padding-bottom:6px}
+
+/* ===== A4 sheet ===== */
+.sheet{position:relative;width:794px;min-height:1120px;margin:0 auto;background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.2);overflow:hidden}
+.sheet input,.sheet textarea{font-family:inherit;background:transparent;border:none;outline:none;color:#000;padding:0;margin:0;border-radius:0}
+.sheet textarea{resize:none;overflow:hidden;display:block;width:100%}
+.sheet input:focus,.sheet textarea:focus{background:#FFF9D6}
+.abs{position:absolute}
+
+/* ===== Delivery Note ===== */
+#dn{font-family:"Open Sans","Segoe UI",Arial,sans-serif;font-size:12px;color:#262626}
+#dn .logo{left:72px;top:60px;width:165px}
+#dn .rule{left:72px;top:174px;width:648px;border-top:1px solid #C4C69F}
+#dn .badge{left:512px;top:125px;width:222px;height:40px;background:#0070C0;color:#fff;font-size:17px;letter-spacing:1px;text-align:center;line-height:40px;font-weight:300}
+#dn .soldto{left:66px;top:250px;font-size:12.5px}
+#dn .lbl{font-weight:700;color:#595959;font-size:12px;line-height:14px}
+#dn .ln{border-bottom:1px solid #4472C4 !important;height:20px;font-size:12.5px}
+#dn table{position:absolute;left:59px;top:476px;width:690px;border-collapse:collapse;table-layout:fixed}
+#dn th{background:#404040;color:#fff;font-weight:400;font-size:12px;letter-spacing:.8px;height:36px;border:1px solid #404040}
+#dn td{border:1px solid #D9D9D9;height:39px;padding:0}
+#dn td input{width:100%;height:38px;padding:0 6px;font-size:12.5px}
+#dn td.rm{border:none;width:0;position:relative;overflow:visible}
+#dn td.rm button{position:absolute;left:6px;top:9px}
+#dn .addrow{left:59px;top:456px}
+#dn .flow{display:flex;flex-direction:column;min-height:1120px}
+#dn .tablespace{position:relative;height:927px;flex:none}
+#dn .sigrow{display:flex;justify-content:space-between;padding:0 52px 40px 54px;margin-top:auto}
+#dn .sigbox{width:300px;height:112px;border:1px solid #595959;position:relative;padding:14px 12px}
+#dn .sigbox .t{font-size:12.5px;color:#262626}
+#dn .sigbox .row{position:absolute;left:12px;right:8px}
+#dn .sigbox .row .lbl{position:absolute;left:0;top:0}
+#dn .sigbox .row .g{position:absolute;left:54px;right:0;top:-2px;border-bottom:1px solid #92D050;height:16px}
+#dn .sigbox input{width:100%;height:16px;font-size:12.5px}
+
+/* ===== Visit Report ===== */
+#vr{font-family:Calibri,Carlito,"Segoe UI",Arial,sans-serif;font-size:12.5px;color:#000}
+#vr .logo{left:43px;top:6px;width:165px}
+#vr .bar{left:43px;top:139px;width:706px;height:30px;background:#4472C4;color:#fff;font-weight:700;font-size:16px;text-align:center;line-height:30px}
+#vr .fl{font-size:12.5px;line-height:18px;white-space:nowrap}
+#vr .dot{border-bottom:1px dotted #000 !important;height:18px;font-size:12.5px}
+#vr table{position:absolute;left:43px;top:252px;width:706px;border-collapse:collapse;table-layout:fixed}
+#vr th{border:1px solid #000;font-weight:700;font-size:12.5px;height:18px;padding:0;text-align:center}
+#vr td{border:1px solid #000;vertical-align:top;padding:2px 5px;height:50px}
+#vr td.n{text-align:left;padding:2px 5px}
+#vr td.c{font-size:12.5px}
+#vr td textarea{font-size:12.5px;min-height:44px;line-height:16px;padding:0}
+#vr .oc{left:48px;top:803px;font-weight:700;font-size:12.5px}
+#vr .cbox{left:48px;top:819px;width:707px;height:95px;border:1px solid #000;padding:4px}
+#vr .cbox textarea{height:85px;overflow:auto;font-size:12.5px}
+
+/* ===== Actions ===== */
+.actionbar{display:flex;gap:10px;justify-content:center;padding:16px 2px 0;flex-wrap:wrap}
+.actionbar button{padding:9px 18px;border-radius:3px;font-size:13.5px;cursor:pointer;border:1px solid transparent}
+.btn-save{background:var(--navy);color:#fff}
+.btn-print{background:#fff;color:var(--navy);border-color:var(--navy)}
+.btn-pdf{background:var(--amber);color:#231605;font-weight:600}
+.btn-new{background:#fff;color:#5B6570;border-color:var(--line)}
+.addrow{padding:5px 12px;border:1px dashed var(--teal);color:var(--teal);background:#fff;border-radius:3px;font-size:12px;cursor:pointer}
+.rowbtn{border:none;background:transparent;color:var(--danger);cursor:pointer;font-size:14px}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--ok);color:#fff;padding:10px 18px;border-radius:3px;font-size:13px;opacity:0;pointer-events:none;transition:opacity .25s}
+.toast.show{opacity:1}
+
+body.exporting .noprint{display:none !important}
+body.exporting .sheet{box-shadow:none}
+
+@page{size:A4;margin:0}
+@media print{
+  html,body{background:#fff}
+  .topbar,.records-bar,.actionbar,.toast,.noprint,.view:not(.active){display:none !important}
+  .shell{margin:0;padding:0;max-width:none}
+  .scroller{overflow:visible;padding:0}
+  .sheet{box-shadow:none;margin:0}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .sheet input:focus,.sheet textarea:focus{background:transparent}
+}
+#dn table{position:static !important;margin:476px 0 0 59px}
+#dn .tablespace{height:auto !important}
+#dn .sigrow{padding-top:30px}
+#dn .tablespace{position:static !important;pointer-events:none}
+#dn table{pointer-events:auto}
+#dn .sigrow{pointer-events:none}
+#dn .sigbox{pointer-events:auto}
+#dn .abs{z-index:2}
+
+/* ===== MOBILE (class set by JS when screen < 820px) ===== */
+body.mobile .topbar{flex-wrap:wrap;padding:8px 12px;gap:8px}
+body.mobile .topbar nav{margin-left:0;width:100%}
+body.mobile .topbar nav button{flex:1;padding:9px 6px}
+body.mobile .shell{margin:10px auto 40px;padding:0 8px}
+body.mobile .scroller{overflow:visible}
+body.mobile .sheet{width:100% !important;min-height:0 !important;padding:14px 12px 18px;box-shadow:0 1px 6px rgba(0,0,0,.15)}
+body.mobile #dn .flow{min-height:0}
+body.mobile .sheet .abs{position:static !important;width:auto}
+body.mobile .sheet .logo{width:150px !important;display:block;margin:0 0 10px}
+body.mobile .sheet .rule{width:100% !important;margin:0 0 10px}
+body.mobile .sheet .badge,body.mobile .sheet .bar{width:100% !important;margin:6px 0 14px;height:38px !important;line-height:38px !important}
+body.mobile .sheet .colon{display:none !important}
+body.mobile .sheet .fl,body.mobile .sheet .lbl,body.mobile .sheet .soldto,body.mobile .sheet .oc{display:block;white-space:normal !important;margin:12px 0 3px;font-size:13px}
+body.mobile .sheet .soldto{font-weight:700;margin-top:6px}
+body.mobile .sheet .lbl br{display:none}
+body.mobile .sheet input,body.mobile .sheet textarea{font-size:16px !important}
+body.mobile .sheet .abs.dot,body.mobile .sheet .abs.ln,body.mobile #dn .sigbox input{display:block;width:100% !important;height:38px !important;padding:6px 4px !important;background:#F6F8FB;border-bottom:1px solid #4472C4 !important}
+body.mobile #vr .abs.dot{border-bottom:1px solid #666 !important}
+body.mobile .addrow{display:inline-block;margin:12px 0 6px;padding:9px 14px}
+
+/* table rows become cards */
+body.mobile #vr table,body.mobile #dn table{position:static !important;display:block;width:100% !important;margin:12px 0 0 !important}
+body.mobile .sheet colgroup,body.mobile .sheet thead{display:none}
+body.mobile .sheet tbody{display:block}
+body.mobile #vr tr{display:block;border:1px solid #000;margin-bottom:10px;padding:8px}
+body.mobile #vr td{display:block;border:none;padding:0;height:auto}
+body.mobile #vr td.n{display:inline-block;font-weight:700;margin-right:8px}
+body.mobile #vr td.c{display:inline-block;font-weight:700}
+body.mobile #vr td[data-label]{margin-top:8px}
+body.mobile #vr td[data-label]::before{content:attr(data-label);display:block;font-size:11px;text-transform:uppercase;color:#555;margin-bottom:2px}
+body.mobile #vr td textarea{border:1px solid #BBB;border-radius:3px;padding:6px;min-height:60px;background:#FAFAFA}
+body.mobile #vr .cbox{width:100% !important;height:auto !important;margin-top:4px}
+body.mobile #vr .cbox textarea{height:110px;border:none}
+
+body.mobile #dn tr{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:6px 8px;border:1px solid #D9D9D9;margin-bottom:10px;padding:8px 34px 8px 8px}
+body.mobile #dn td{display:block;border:none;height:auto}
+body.mobile #dn td:nth-child(3){grid-column:1/-1}
+body.mobile #dn td[data-label]::before{content:attr(data-label);display:block;font-size:11px;color:#555;margin-bottom:2px}
+body.mobile #dn td input{height:36px;border:1px solid #CCC !important;border-radius:3px;padding:0 6px !important;background:#FAFAFA}
+body.mobile #dn td.rm{position:absolute;right:4px;top:4px;width:auto}
+body.mobile #dn td.rm button{position:static;font-size:18px;padding:4px 8px}
+
+body.mobile #dn .sigrow{display:block;padding:14px 0 0}
+body.mobile #dn .sigbox{width:100%;height:auto;margin-bottom:12px;padding:12px}
+body.mobile #dn .sigbox .row{position:static;margin-top:8px}
+body.mobile #dn .sigbox .row .g,body.mobile #dn .sigbox .row.sg{display:none}
+body.mobile #dn .sigbox input{position:static !important}
+body.mobile .actionbar button{flex:1 1 40%;padding:11px 8px}
+
+/* ===== fixes: multi-line cells + no clipped text on scaled laptop screens ===== */
+#dn td textarea{width:100%;display:block;min-height:38px;padding:10px 6px;font-size:12.5px;line-height:18px;overflow:hidden;resize:none;box-sizing:border-box}
+#dn .ln{height:26px;margin-top:-6px;line-height:20px;padding-top:2px}
+#dn .sigbox input{height:24px;line-height:20px;top:-8px !important;padding-top:2px}
+body.mobile #dn td textarea{min-height:38px;border:1px solid #CCC !important;border-radius:3px;padding:8px 6px;background:#FAFAFA;font-size:16px !important;line-height:20px}
+body.mobile #dn .abs.ln{margin-top:0;height:38px !important}
+body.mobile #dn .sigbox input{top:auto !important;margin-top:0;height:38px !important}
